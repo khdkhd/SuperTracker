@@ -13,5 +13,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+body {
+	background-color: $app-bg-color;
+}
 </style>
