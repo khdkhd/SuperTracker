@@ -1,4 +1,4 @@
-# super-tracker
+# Super Tracker
 
 > Audio Tracker
 
