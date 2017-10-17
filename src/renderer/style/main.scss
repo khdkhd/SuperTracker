@@ -1,0 +1,9 @@
+@import "global";
+
+body {
+	background-color: $app-bg-color;
+	color: $app-fg-color;
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+}

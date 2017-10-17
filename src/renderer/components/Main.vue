@@ -1,20 +1,28 @@
 <template>
-<div id="wrapper">
+<div id="main-wrapper">
+	<transport></transport>
+	<!-- <visualisation></visualisation>
+	<tracks></tracks> -->
 </div>
 </template>
 
 <script>
+import Tracks from '@/renderer/components/Tracks'
+import Transport from '@/renderer/components/Transport'
+import Visualisation from '@/renderer/components/Visualisation'
+
 export default {
-	name: 'landing-page',
+	name: 'main',
+	data() {
+		return {
+		}
+	},
 	components: {
+		Tracks,
+		Transport,
+		Visualisation,
 	},
 	methods: {
 	},
 }
 </script>
-
-<style lang="scss">
-body {
-	background-color: $app-bg-color;
-}
-</style>

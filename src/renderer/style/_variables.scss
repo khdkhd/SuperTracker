@@ -1,8 +1,18 @@
 $red: #DC665B;
 $black: #303241;
+$gray: lighten($black, 10);
 $blue: #D4F4FE;
+$viking: #6AC9EB;
 $white: #E3DCF3;
 
 $app-bg-color: $black;
 $app-fg-color: $white;
 $app-font-family: sans-serif;
+
+$button-font-size: .75rem;
+$button-min-width: 1.5rem;
+$button-bg-color: lighten($app-bg-color, 15);
+$button-border-color: darken($app-bg-color, 10);
+$button-border-thickness: 1px;
+
+$button-group-border-radius: 4px;

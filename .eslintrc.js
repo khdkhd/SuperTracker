@@ -12,7 +12,7 @@ module.exports = {
 	globals: {
 		__static: true
 	},
-	plugins: ['html'],
+	plugins: ['html', 'import'],
 	'rules': {
 		'arrow-parens': 0, // allow paren-less arrow functions
 		'comma-dangle': ['warn', 'always-multiline'],

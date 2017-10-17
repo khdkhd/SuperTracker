@@ -2,6 +2,7 @@
 
 process.env.BABEL_ENV = 'renderer'
 
+const {propOr} = require('ramda')
 const path = require('path')
 const {dependencies} = require('../package.json')
 const webpack = require('webpack')
@@ -10,6 +11,13 @@ const BabiliWebpackPlugin = require('babili-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+function main_component_path() {
+	const main = process.env.COMPONENT == null
+		? 'Main.vue'
+		: path.join('Tests', process.env.COMPONENT + '.vue')
+	return path.join(__dirname, '..', 'src', 'renderer', 'components', main)
+}
 
 /**
  * List of node_modules to include in webpack bundle
@@ -39,8 +47,11 @@ let rendererConfig = {
 					}
 				}
 			}, {
-				test: /\.css$/,
-				use: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader'})
+				test: /\.(css|scss)$/,
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: ['css-loader', 'sass-loader']
+				})
 			}, {
 				test: /\.html$/,
 				use: 'vue-html-loader'
@@ -58,8 +69,8 @@ let rendererConfig = {
 					options: {
 						extractCSS: process.env.NODE_ENV === 'production',
 						loaders: {
-							sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1&data=@import "./src/renderer/style/variables"',
-							scss: 'vue-style-loader!css-loader!sass-loader?data=@import "./src/renderer/style/variables";'
+							sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1&data=@import "./src/renderer/style/global"',
+							scss: 'vue-style-loader!css-loader!sass-loader?data=@import "./src/renderer/style/global";'
 						}
 					}
 				}
@@ -119,7 +130,8 @@ let rendererConfig = {
 	},
 	resolve: {
 		alias: {
-			'@': path.join(__dirname, '../src'),
+			'@': path.join(__dirname, '..', 'src'),
+			'@MainComponent': main_component_path(),
 			'vue$': 'vue/dist/vue.esm.js'
 		},
 		extensions: ['.js', '.vue', '.json', '.css', '.node']
