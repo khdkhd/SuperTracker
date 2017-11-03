@@ -1,0 +1,29 @@
+@import "global";
+
+button {
+	background-color: $button-bg-color;
+	border: {
+		color: $button-border-color;
+		style: solid;
+		width: $button-border-thickness;
+	}
+	border-radius: $button-border-radius;
+	color: inherit;
+	display: inline-block;
+	font-family: FontAwesome;
+	font-size: $button-font-size;
+	margin: 0;
+	padding: .2rem .75rem;
+	outline: none;
+	text-align: center;
+	text-shadow: none;
+	transition: all 0.25s;
+	vertical-align: middle;
+	&:hover {
+		color: $blue;
+		@include neon-glow;
+	}
+	&::after {
+		content: '\f128';
+	}
+}
