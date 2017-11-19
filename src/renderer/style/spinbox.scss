@@ -1,0 +1,71 @@
+@import "global";
+.spin-box {
+	background-color: $spinbox-bg-color;
+	border: {
+		color: $button-border-color;
+		style: solid;
+		width: $spinbox-border-thickness;
+	}
+	border-radius: $spinbox-border-radius;
+	box-sizing: border-box;
+	display: inline-block;
+	padding-left: .5rem;
+	padding-right: 1rem;
+	position: relative;
+	height: $line-height;
+	input[type=number] {
+		background-color: $button-bg-color;
+		border: none;
+		color: inherit;
+		display: block;
+		font-size: $spinbox-font-size;
+		font-weight: bold;
+		height: 100%;
+		margin: 0;
+		outline: none;
+		padding: 0;
+		text-align: left;
+		&:hover {
+			color: $blue;
+		}
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+		}
+		&::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+		}
+
+	}
+	.spinbox-arrow-wrapper {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 1rem;
+	}
+	.spinbox-arrow {
+		background: none;
+		border: none;
+		border-radius: 0;
+		display: block;
+		font-size: $button-arrow-font-size;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 50%;
+		&:hover {
+		}
+		&[data-action="up"] {
+			line-height: 50%;
+			&::after {
+				content: '\f0d8';
+			}
+		}
+		&[data-action="down"] {
+			line-height: 50%;
+			&::after {
+				content: '\f0d7';
+			}
+		}
+	}
+}

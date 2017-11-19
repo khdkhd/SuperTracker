@@ -5,14 +5,24 @@ $blue: #D4F4FE;
 $viking: #6AC9EB;
 $white: #E3DCF3;
 
+$font-size: 20pt;
+$line-height: 1.25rem;
+
 $app-bg-color: $black;
 $app-fg-color: $white;
 $app-font-family: sans-serif;
 
 $button-border-radius: 4px;
 $button-font-size: .75rem;
-$button-min-width: 1.5rem;
+$button-min-width: $line-height;
 
 $button-bg-color: lighten($app-bg-color, 15);
 $button-border-color: darken($app-bg-color, 2.5);
 $button-border-thickness: 2px;
+
+$spinbox-bg-color: lighten($app-bg-color, 15);
+$spinbox-border-color: darken($app-bg-color, 2.5);
+$spinbox-border-radius: 4px;
+$spinbox-border-thickness: 2px;
+$spinbox-font-size: .75rem;
+$button-arrow-font-size: .6rem;

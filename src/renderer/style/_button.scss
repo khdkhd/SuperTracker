@@ -8,12 +8,14 @@ button {
 		width: $button-border-thickness;
 	}
 	border-radius: $button-border-radius;
+	box-sizing: border-box;
 	color: inherit;
 	display: inline-block;
 	font-family: FontAwesome;
 	font-size: $button-font-size;
+	height: $line-height;
 	margin: 0;
-	padding: .2rem .75rem;
+	padding: 0 .75rem;
 	outline: none;
 	text-align: center;
 	text-shadow: none;
@@ -21,7 +23,6 @@ button {
 	vertical-align: middle;
 	&:hover {
 		color: $blue;
-		@include neon-glow;
 	}
 	&::after {
 		content: '\f128';
