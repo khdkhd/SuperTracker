@@ -18,10 +18,10 @@ button {
 	padding: 0 .75rem;
 	outline: none;
 	text-align: center;
-	text-shadow: none;
 	transition: all 0.25s;
 	vertical-align: middle;
 	&:hover {
+		background-color: $button-hover-bg-color;
 		color: $blue;
 	}
 	&::after {

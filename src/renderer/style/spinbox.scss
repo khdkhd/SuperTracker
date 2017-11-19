@@ -2,19 +2,19 @@
 .spin-box {
 	background-color: $spinbox-bg-color;
 	border: {
-		color: $button-border-color;
+		color: $spinbox-border-color;
 		style: solid;
 		width: $spinbox-border-thickness;
 	}
 	border-radius: $spinbox-border-radius;
 	box-sizing: border-box;
 	display: inline-block;
-	padding-left: .5rem;
-	padding-right: 1rem;
+	padding-left: $spinbox-padding-left;
+	padding-right: $spinbox-padding-right;
 	position: relative;
 	height: $line-height;
 	input[type=number] {
-		background-color: $button-bg-color;
+		background-color: $spinbox-bg-color;
 		border: none;
 		color: inherit;
 		display: block;
@@ -37,31 +37,34 @@
 
 	}
 	.spinbox-arrow-wrapper {
+		border-left: 1px solid $spinbox-arrow-border-color;
 		position: absolute;
 		top: 0;
 		right: 0;
 		bottom: 0;
-		width: 1rem;
+		width: $spinbox-arrow-width;
 	}
 	.spinbox-arrow {
-		background: none;
 		border: none;
-		border-radius: 0;
 		display: block;
-		font-size: $button-arrow-font-size;
+		font-size: $spinbox-arrow-font-size;
 		margin: 0;
 		padding: 0;
 		width: 100%;
 		height: 50%;
 		&:hover {
+			background-color: $spinbox-arrow-hover-bg-color;
+			color: $blue;
 		}
 		&[data-action="up"] {
+			border-radius: 0 $spinbox-border-radius 0 0;
 			line-height: 50%;
 			&::after {
 				content: '\f0d8';
 			}
 		}
 		&[data-action="down"] {
+			border-radius: 0 0 $spinbox-border-radius 0;
 			line-height: 50%;
 			&::after {
 				content: '\f0d7';
