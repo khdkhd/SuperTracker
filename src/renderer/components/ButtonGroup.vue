@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import '@/renderer/style/button-group.scss'
 export default {
 	name: 'transport',
 	components: {
@@ -22,28 +23,3 @@ export default {
 	},
 }
 </script>
-
-<style lang="scss" scoped>
-.button-group {
-	display: inline-block;
-	list-style-type: none;
-	padding: 0;
-	li {
-		display: inline-block;
-		margin: 0 0;
-		button {
-			border-radius: 0;
-			border-left-width: 0;
-		}
-		&:first-child button {
-			border-left-width: $button-border-thickness;
-			border-bottom-left-radius: $button-border-radius;
-			border-top-left-radius: $button-border-radius;
-		}
-		&:last-child button {
-			border-bottom-right-radius: $button-border-radius;
-			border-top-right-radius: $button-border-radius;
-		}
-	}
-}
-</style>
