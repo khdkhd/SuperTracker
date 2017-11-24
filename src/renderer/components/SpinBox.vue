@@ -66,6 +66,10 @@ export default {
 			const precision = defaultTo(defaultPrecision, this.precision)
 			const val = clamp(this.min, this.max, this.value + sign*this.step)
 			this.value = Number(val.toFixed(precision))
+		},
+	},
+	watch: {
+		value() {
 			this.$emit('value-changed', this.value)
 		},
 	},
