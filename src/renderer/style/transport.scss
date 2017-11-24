@@ -1,0 +1,41 @@
+@import "global";
+
+#transport {
+	@include shadow(2);
+	background-color: $transport-bg-color;
+	height: $transport-bar-height;
+	list-style-type: none;
+	font-size: $transport-font-size;
+	margin: 0;
+	padding: .25rem;
+	#action button {
+		&#play::after {
+			content: '\f04b';
+		}
+		&#stop::after {
+			content: '\f04d';
+		}
+		&#loop::after {
+			content: '\f01e';
+		}
+		&#edit::after {
+			content: '\f111';
+		}
+		&#pattern-follow-mode::after {
+			content: '\f175';
+		}
+	}
+	& > li {
+		display: inline-block;
+		margin: 0 .125rem;
+		&.separator {
+			border: none;
+			border-left: 1px solid $transport-item-separator-color;
+			height: 100%;
+			vertical-align: middle;
+			&::after {
+				content: ' ';
+			}
+		}
+	}
+}
