@@ -6,31 +6,37 @@ $viking: #6AC9EB;
 $white: #E3DCF3;
 
 $font-size: 16pt;
-$line-height: 1.25rem;
+$line-height: 1.5rem;
+$transition-duration: .25s;
 
 $app-bg-color: $black;
 $app-fg-color: $white;
 $app-font-family: sans-serif;
 
+$control-bg-color: lighten($app-bg-color, 10);
+$control-hover-bg-color: darken($control-bg-color, 5);
+
 $border-radius: 6px;
 $border-thickness: 3px;
+$border-color: darken($control-bg-color, 12);
 
-$button-bg-color: lighten($app-bg-color, 15);
-$button-hover-bg-color: darken($button-bg-color, 5);
-$button-border-color: darken($app-bg-color, 2.5);
+$button-bg-color: $control-bg-color;
+$button-hover-bg-color: $control-hover-bg-color;
+$button-border-color: $border-color;
 $button-border-radius: $border-radius;
 $button-border-thickness: $border-thickness;
-$button-font-size: .75rem;
+$button-font-size: .5rem;
 $button-min-width: $line-height;
 
-$spinbox-bg-color: lighten($app-bg-color, 15);
-$spinbox-border-color: darken($app-bg-color, 2.5);
+$spinbox-bg-color: $control-bg-color;
+$spinbox-hover-bg-color: $control-hover-bg-color;
+$spinbox-border-color: $border-color;
 $spinbox-border-radius: $border-radius;
 $spinbox-border-thickness: $border-thickness;
 $spinbox-font-size: .75rem;
 $spinbox-padding-left: .5rem;
 $spinbox-padding-right: 1rem;
 $spinbox-arrow-border-color: darken($spinbox-bg-color, 5);
-$spinbox-arrow-hover-bg-color: darken($spinbox-bg-color, 5);
+$spinbox-arrow-hover-bg-color: $control-hover-bg-color;
 $spinbox-arrow-font-size: .6rem;
 $spinbox-arrow-width: 1rem;

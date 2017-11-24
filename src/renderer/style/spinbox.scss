@@ -13,8 +13,12 @@
 	padding-right: $spinbox-padding-right;
 	position: relative;
 	height: $line-height;
+	transition: all $transition-duration;
+	&:hover {
+		background-color: $spinbox-hover-bg-color;
+	}
 	input[type=number] {
-		background-color: $spinbox-bg-color;
+		background-color: transparent;;
 		border: none;
 		color: inherit;
 		display: block;
@@ -34,7 +38,6 @@
 		&::-webkit-outer-spin-button {
 			-webkit-appearance: none;
 		}
-
 	}
 	.spinbox-arrow-wrapper {
 		border-left: 1px solid $spinbox-arrow-border-color;
