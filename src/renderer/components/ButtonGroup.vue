@@ -4,7 +4,8 @@
 			<button
 				:id="button.id"
 				@click="onButtonClicked"
-				type="button"></button>
+				type="button">
+			</button>
 		</li>
 	</ul>
 </template>
