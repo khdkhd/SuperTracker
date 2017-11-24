@@ -30,6 +30,10 @@ export default {
 	components: {
 	},
 	props: {
+		initValue: {
+			type: Number,
+			default: defaultValue,
+		},
 		max: {
 			type: Number,
 			default: defaultMax,
@@ -49,33 +53,20 @@ export default {
 	},
 	data() {
 		return {
-			value: clamp(this.min, this.max, defaultTo(defaultValue, this.value)),
+			value: clamp(
+				this.min,
+				this.max,
+				defaultTo(this.initValue, this.value)
+			),
 		}
 	},
 	methods: {
 		onArrowClicked({ target }) {
 			const sign = target === this.$refs.up ? 1 : -1
 			const precision = defaultTo(defaultPrecision, this.precision)
-			this.value = Number(clamp(this.min, this.max, this.value + sign*this.step).toFixed(precision))
+			const val = clamp(this.min, this.max, this.value + sign*this.step)
+			this.value = Number(val.toFixed(precision))
 			this.$emit('value-changed', this.value)
-		},
-	},
-	computed: {
-		initMax() {
-			return defaultTo(defaultMax, Number(this.max))
-		},
-		initMin() {
-			return defaultTo(defaultMin, Number(this.min))
-		},
-		initStep() {
-			return defaultTo(defaultStep, Number(this.step))
-		},
-		initValue() {
-			return clamp(
-				Number(this.min),
-				Number(this.max),
-				defaultTo(defaultValue, Number(this.value))
-			)
 		},
 	},
 }

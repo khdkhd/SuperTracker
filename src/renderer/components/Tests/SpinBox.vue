@@ -1,11 +1,8 @@
 <template>
 	<div>
 		<span>foo</span>
-		<spin-box @value-changed="onValueChanged"></spin-box>
-		<spin-box :min=0 @value-changed="onValueChanged"></spin-box>
-		<spin-box :min=0 :max=4 @value-changed="onValueChanged"></spin-box>
-		<spin-box :min=0 :max=4 :step=.01 @value-changed="onValueChanged"></spin-box>
-		<spin-box :min=0 :max=4 :step=.01 :value=2 @value-changed="onValueChanged"></spin-box>
+		<spin-box :initValue="value0"></spin-box>
+		<spin-box :min=-1 :initValue="value1"></spin-box>
 		<button></button>
 	</div>
 </template>
@@ -17,6 +14,11 @@ export default {
 	name: 'ButtonGroup-test',
 	data() {
 		return {
+			value0: 2,
+			value1: 0,
+			value2: 0,
+			value3: 0,
+			value4: 0,
 		}
 	},
 	components: {
