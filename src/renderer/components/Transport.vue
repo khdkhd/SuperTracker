@@ -1,10 +1,18 @@
 <template>
 <div id="transport">
 	<ul>
-		<li><button-group id="action" :buttons="buttons"></button-group></li>
+		<li>
+			<button-group
+				id="action"
+				ref="action"
+				:buttons="buttons"
+				@click="onActionButtonClicked">
+			</button-group>
+		</li>
 		<li class="separator"></li>
 		<li>
 			<spin-box
+				id="tempo"
 				ref="tempo"
 				min=30
 				max=300
@@ -45,8 +53,11 @@ export default {
 		}
 	},
 	methods: {
-		onTempoValueChanged(tempo) {
-			console.log(tempo)
+		onActionButtonClicked(actionId) {
+			// console.log(actionId)
+		},
+		onTempoValueChanged(tempoValue) {
+			// console.log(tempoValue)
 		},
 	},
 }
