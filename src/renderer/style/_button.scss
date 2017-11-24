@@ -14,7 +14,7 @@ button {
 	font-size: $button-font-size;
 	height: $line-height;
 	margin: 0;
-	padding: 0 .75rem;
+	padding: 0 $button-padding;
 	outline: none;
 	text-align: center;
 	transition: all $transition-duration;
