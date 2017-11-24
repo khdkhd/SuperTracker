@@ -43,6 +43,7 @@ export default {
 			const precision = defaultTo(defaultPrecision, this.precision)
 			const value = Number((this.currentValue() + incr).toFixed(precision))
 			this.$refs.input.value = value
+			this.$emit('value-changed', value)
 		},
 	},
 	computed: {
