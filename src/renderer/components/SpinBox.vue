@@ -4,11 +4,10 @@
 			ref="input"
 			type="number"
 			name=""
-			@input="onValueChanged"
 			:min="min"
 			:max="max"
 			:step="step"
-			:value="initValue">
+			v-model.number="value">
 		<div class="spinbox-arrow-wrapper">
 			<button ref="up" class="spinbox-arrow" data-action="up" @click="onArrowClicked"/>
 			<button ref="down" class="spinbox-arrow" data-action="down" @click="onArrowClicked"/>
@@ -20,38 +19,62 @@
 import { clamp, defaultTo } from 'ramda'
 import '@/renderer/style/spinbox.scss'
 
-const defaultMin = -Infinity
-const defaultMax = Infinity
-const defaultVal = 0
+const defaultMin = 0
+const defaultMax = 100
+const defaultValue = 0
 const defaultPrecision = 2
+const defaultStep = 1
 
 export default {
 	name: 'spin-box',
 	components: {
 	},
-	props: ['min', 'max', 'precision', 'step', 'value'],
+	props: {
+		max: {
+			type: Number,
+			default: defaultMax,
+		},
+		min: {
+			type: Number,
+			default: defaultMin,
+		},
+		precision: {
+			type: Number,
+			default: defaultPrecision,
+		},
+		step: {
+			type: Number,
+			default: defaultStep,
+		},
+	},
+	data() {
+		return {
+			value: clamp(this.min, this.max, defaultTo(defaultValue, this.value)),
+		}
+	},
 	methods: {
-		currentValue() {
-			return Number(this.$refs.input.value)
-		},
-		onValueChanged(ev) {
-			this.$emit('value-changed', Number(ev.target.value))
-		},
 		onArrowClicked({ target }) {
 			const sign = target === this.$refs.up ? 1 : -1
-			const incr = sign*Number(this.step)
 			const precision = defaultTo(defaultPrecision, this.precision)
-			const value = Number((this.currentValue() + incr).toFixed(precision))
-			this.$refs.input.value = value
-			this.$emit('value-changed', value)
+			this.value = Number(clamp(this.min, this.max, this.value + sign*this.step).toFixed(precision))
+			this.$emit('value-changed', this.value)
 		},
 	},
 	computed: {
+		initMax() {
+			return defaultTo(defaultMax, Number(this.max))
+		},
+		initMin() {
+			return defaultTo(defaultMin, Number(this.min))
+		},
+		initStep() {
+			return defaultTo(defaultStep, Number(this.step))
+		},
 		initValue() {
 			return clamp(
-				Number(defaultTo(defaultMin, this.min)),
-				Number(defaultTo(defaultMax, this.max)),
-				Number(defaultTo(defaultVal, this.value))
+				Number(this.min),
+				Number(this.max),
+				defaultTo(defaultValue, Number(this.value))
 			)
 		},
 	},

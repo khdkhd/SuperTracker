@@ -1,7 +1,11 @@
 <template>
 	<div>
 		<span>foo</span>
-		<spin-box min=0 max=4 step=.01 value=2 @value-changed="onValueChanged"></spin-box>
+		<spin-box @value-changed="onValueChanged"></spin-box>
+		<spin-box :min=0 @value-changed="onValueChanged"></spin-box>
+		<spin-box :min=0 :max=4 @value-changed="onValueChanged"></spin-box>
+		<spin-box :min=0 :max=4 :step=.01 @value-changed="onValueChanged"></spin-box>
+		<spin-box :min=0 :max=4 :step=.01 :value=2 @value-changed="onValueChanged"></spin-box>
 		<button></button>
 	</div>
 </template>
