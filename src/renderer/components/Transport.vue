@@ -3,16 +3,28 @@
 	<ul>
 		<li><button-group id="action" :buttons="buttons"></button-group></li>
 		<li class="separator"></li>
+		<li>
+			<spin-box
+				ref="tempo"
+				min=30
+				max=300
+				step=.01
+				value=120
+				@value-changed="onTempoValueChanged">
+			</spin-box>
+		</li>
 	</ul>
 </div>
 </template>
 
 <script>
 import ButtonGroup from '@/renderer/components/ButtonGroup'
+import SpinBox from '@/renderer/components/SpinBox'
 export default {
 	name: 'transport',
 	components: {
 		ButtonGroup,
+		SpinBox,
 	},
 	data() {
 		return {
@@ -33,6 +45,9 @@ export default {
 		}
 	},
 	methods: {
+		onTempoValueChanged(tempo) {
+			console.log(tempo)
+		},
 	},
 }
 </script>
