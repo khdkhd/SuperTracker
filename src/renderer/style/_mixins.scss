@@ -5,3 +5,7 @@
 		0 0 20px $viking,
 		0 0 25px $viking;
 }
+
+@mixin shadow($level) {
+	box-shadow: 0px #{$level}px #{2*$level}px 0px rgba(0,0,0,0.5);
+}
