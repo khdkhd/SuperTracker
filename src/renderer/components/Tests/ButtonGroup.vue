@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<span>foo</span>
-		<button-group id="action" :buttons="buttons" @click="onClick"></button-group>
+		<button-group id="action" :buttons="buttons" @clicked="onClick"></button-group>
 		<span>foo</span>
 	</div>
 </template>

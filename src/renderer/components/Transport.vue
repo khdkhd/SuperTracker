@@ -6,7 +6,7 @@
 				id="action"
 				ref="action"
 				:buttons="buttons"
-				@click="onActionButtonClicked">
+				@clicked="onActionButtonClicked">
 			</button-group>
 		</li>
 		<li class="separator"></li>

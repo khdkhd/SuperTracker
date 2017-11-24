@@ -18,7 +18,7 @@ export default {
 	props: ['buttons'],
 	methods: {
 		onButtonClicked(ev) {
-			this.$emit('click', ev.target.id, ev.target)
+			this.$emit('clicked', ev.target.id, ev.target)
 		},
 	},
 }
