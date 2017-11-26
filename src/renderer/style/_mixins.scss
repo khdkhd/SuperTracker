@@ -9,3 +9,39 @@
 @mixin shadow($level) {
 	box-shadow: 0px #{$level}px #{2*$level}px 0px rgba(0,0,0,0.5);
 }
+
+@mixin corner-border($color, $thickness: 1, $offset: -1, $width: 10%, $height: 10%) {
+	&.active {
+		&:before,
+		&:after,
+		&>:first-child:before,
+		&>:first-child:after {
+			position: absolute;
+			width: $width;
+			height: $height;
+			border-color: $color;
+			border-style: solid;
+			content: ' ';
+		}
+		&:before {
+			top: #{$offset}px;
+			left: #{$offset}px;
+			border-width: #{$thickness}px 0 0 #{$thickness}px
+		}
+		&:after {
+			top: #{$offset}px;
+			right: #{$offset}px;
+			border-width: #{$thickness}px #{$thickness}px 0 0
+		}
+		&>:first-child:before {
+			bottom: #{$offset}px;
+			right: #{$offset}px;
+			border-width: 0 #{$thickness}px #{$thickness}px 0
+		}
+		&>:first-child:after {
+			bottom: #{$offset}px;
+			left: #{$offset}px;
+			border-width: 0 0 #{$thickness}px #{$thickness}px
+		}
+	}
+}
