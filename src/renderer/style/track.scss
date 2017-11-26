@@ -1,5 +1,4 @@
 @import "global";
-$track-header-margin: 1rem;
 .track {
 	border: {
 		color: $track-border-color;
@@ -7,16 +6,16 @@ $track-header-margin: 1rem;
 		width: $track-border-thickness;
 	}
 	display: inline-block;
-	line-height: $track-line-height;
 	padding: $track-padding;
 	margin: $track-margin;
 	position: relative;
 	& > ul {
 		font: {
-			family: $track-font-familly;
-			size: $track-font-size;
-			weight: $track-font-weight;
+			family: $track-step-font-familly;
+			size: $track-step-font-size;
+			weight: $track-step-font-weight;
 		}
+		line-height: $track-step-line-height;
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
@@ -30,7 +29,7 @@ $track-header-margin: 1rem;
 		}
 	}
 	header {
-		font-size: .5rem;
+		font-size: $track-header-font-size;
 		text-align: center;
 		margin-bottom: $track-header-margin;
 	}
