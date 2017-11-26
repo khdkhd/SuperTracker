@@ -8,7 +8,7 @@ $yellow: #e8e073;
 $white: #e3dcf3;
 
 $font-size: 16pt;
-$font-path: '../../../static/fonts';
+$font-path: '/static/fonts';
 $line-height: 1.25rem;
 $transition-duration: .25s;
 
@@ -51,3 +51,19 @@ $transport-font-size: .75rem;
 $transport-item-separator-color: $border-color;
 $transport-item-spacing: 0rem;
 $transport-item-margin: .25rem;
+
+$track-border-color: $light-gray;
+$track-border-thickness: 1px;
+$track-active-color: $yellow;
+$track-active-corner-border-size: .5rem;
+$track-active-corner-border-thickness: 3;
+$track-active-corner-border-offset: -1;
+$track-font-familly: 'Source Code Pro';
+$track-font-size: .5rem;
+$track-font-weight: 700;
+$track-line-height: .6rem;
+$track-margin: .0625rem;
+$track-padding: .25rem;
+$track-step-active-bg-color: $light-gray;
+$track-step-pitch-color: $white;
+$track-step-velocity-color: $green;

@@ -1,0 +1,55 @@
+@import "global";
+$track-header-margin: 1rem;
+.track {
+	border: {
+		color: $track-border-color;
+		style: solid;
+		width: $track-border-thickness;
+	}
+	display: inline-block;
+	line-height: $track-line-height;
+	padding: $track-padding;
+	margin: $track-margin;
+	position: relative;
+	& > ul {
+		font: {
+			family: $track-font-familly;
+			size: $track-font-size;
+			weight: $track-font-weight;
+		}
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: auto;
+		& > li {
+			float: left;
+			clear: both;
+			&.active {
+				background-color: $track-step-active-bg-color;
+			}
+		}
+	}
+	header {
+		font-size: .5rem;
+		text-align: center;
+		margin-bottom: $track-header-margin;
+	}
+	.pitch {
+		color: $track-step-pitch-color;
+	}
+	.velocity {
+		color: $track-step-velocity-color;
+	}
+	&.active {
+		header {
+			color: $track-active-color;
+		}
+		@include corner-border(
+			$width: $track-active-corner-border-size,
+			$height: $track-active-corner-border-size,
+			$thickness: $track-active-corner-border-thickness,
+			$offset: $track-active-corner-border-offset,
+			$color: $track-active-color
+		);
+	}
+}
