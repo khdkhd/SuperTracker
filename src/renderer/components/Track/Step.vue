@@ -21,10 +21,13 @@ export default {
 			required: true,
 		},
 		step: {
-			type: [Boolean, Object],
+			type: Object,
 			required: true,
+			validator(step) {
+				return (isNil(step.midi) && isNil(step.velocity))
+					|| (!isNil(step.midi) && !isNil(step.velocity))
+			},
 		},
-		curent: 0,
 	},
 	computed: {
 		pitch() {
