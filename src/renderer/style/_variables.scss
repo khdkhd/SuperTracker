@@ -1,10 +1,11 @@
-$black: #303241;
-$gray: lighten($black, 10);
+$gray: #303241;
+$dark-gray: darken($gray, 2.5);
 $light-gray: lighten($gray, 10);
 $red: #dc665b;
 $green: #7af85d;
 $blue: #67dcf9;
 $yellow: #e8e073;
+$black: darken($gray, 5);
 $white: #e3dcf3;
 
 $font-size: 16pt;
@@ -12,7 +13,7 @@ $font-path: '/static/fonts';
 $line-height: 1.25rem;
 $transition-duration: .25s;
 
-$app-bg-color: $black;
+$app-bg-color: $gray;
 $app-fg-color: $white;
 $app-font-family: sans-serif;
 
@@ -46,26 +47,30 @@ $spinbox-arrow-font-size: .6rem;
 $spinbox-arrow-width: 1rem;
 
 $transport-bar-height: $line-height;
-$transport-bg-color: #26272f;
+$transport-bg-color: $black;
 $transport-font-size: .75rem;
+$transport-shadow-level: 2;
 $transport-item-separator-color: $border-color;
 $transport-item-spacing: 0rem;
 $transport-item-margin: .25rem;
 
-$track-border-color: $light-gray;
-$track-border-thickness: 1px;
-$track-active-color: $yellow;
-$track-active-corner-border-size: .5rem;
-$track-active-corner-border-thickness: 3;
-$track-active-corner-border-offset: -1;
-$track-margin: .0625rem;
-$track-padding: .25rem;
-$track-header-margin: 1rem;
-$track-header-font-size: .5rem;
-$track-step-font-familly: 'Source Code Pro';
-$track-step-font-size: .5rem;
-$track-step-font-weight: 700;
-$track-step-line-height: .6rem;
-$track-step-active-bg-color: $light-gray;
-$track-step-pitch-color: $white;
-$track-step-velocity-color: $green;
+$pattern-bg-color: $black;
+$pattern-shadow-level: 2;
+
+$pattern-track-border-color: $light-gray;
+$pattern-track-border-thickness: 1px;
+$pattern-track-active-color: $yellow;
+$pattern-track-active-corner-border-size: .5rem;
+$pattern-track-active-corner-border-thickness: 3;
+$pattern-track-active-corner-border-offset: -1;
+$pattern-track-margin: .0625rem;
+$pattern-track-padding: .25rem;
+$pattern-track-header-margin: 1rem;
+$pattern-track-header-font-size: .5rem;
+$pattern-track-step-font-familly: 'Source Code Pro';
+$pattern-track-step-font-size: .5rem;
+$pattern-track-step-font-weight: 700;
+$pattern-track-step-line-height: .6rem;
+$pattern-track-step-active-bg-color: $light-gray;
+$pattern-track-step-pitch-color: $white;
+$pattern-track-step-velocity-color: $green;

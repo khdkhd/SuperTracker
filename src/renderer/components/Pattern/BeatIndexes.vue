@@ -1,6 +1,6 @@
 <template>
 <div class="beat-indexes">
-	<header>Beat</header>
+	<header>{{indexes.length}}</header>
 	<ul><li v-for="index in indexes" :key="index">{{index|format}}</li></ul>
 </div>
 </template>

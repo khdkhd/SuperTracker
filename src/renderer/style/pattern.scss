@@ -1,56 +1,71 @@
 @import "global";
+.pattern {
+	background-color: $pattern-bg-color;
+	display: inline-block;
+	padding: 1rem;
+	margin: 1rem;
+	text-align: center;
+	@include shadow($pattern-shadow-level);
+}
 .beat-indexes, .track {
 	border: {
-		color: $track-border-color;
+		color: $pattern-track-border-color;
 		style: solid;
-		width: $track-border-thickness;
+		width: $pattern-track-border-thickness;
 	}
 	display: inline-block;
-	padding: $track-padding;
-	margin: $track-margin;
+	padding: $pattern-track-padding;
+	margin: $pattern-track-margin;
 	position: relative;
 	& > ul {
 		font: {
-			family: $track-step-font-familly;
-			size: $track-step-font-size;
-			weight: $track-step-font-weight;
+			family: $pattern-track-step-font-familly;
+			size: $pattern-track-step-font-size;
+			weight: $pattern-track-step-font-weight;
 		}
-		line-height: $track-step-line-height;
+		line-height: $pattern-track-step-line-height;
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
 		overflow: auto;
 		& > li {
-			float: left;
+			color: $light-gray;
 			clear: both;
+			float: left;
 			&.active {
-				background-color: $track-step-active-bg-color;
+				background-color: $pattern-track-step-active-bg-color;
+			}
+			&:nth-child(4n + 1) {
+				color: $white;
+				background-color: $gray;
 			}
 		}
 	}
 	header {
-		font-size: $track-header-font-size;
+		font-size: $pattern-track-header-font-size;
 		text-align: center;
-		margin-bottom: $track-header-margin;
+		min-height: 3rem;
 	}
+}
+.beat-indexes {
 }
 .track {
 	.pitch {
-		color: $track-step-pitch-color;
+		color: $pattern-track-step-pitch-color;
 	}
 	.velocity {
-		color: $track-step-velocity-color;
+		color: $pattern-track-step-velocity-color;
 	}
 	&.active {
 		header {
-			color: $track-active-color;
+			color: $pattern-track-active-color;
 		}
 		@include corner-border(
-			$width: $track-active-corner-border-size,
-			$height: $track-active-corner-border-size,
-			$thickness: $track-active-corner-border-thickness,
-			$offset: $track-active-corner-border-offset,
-			$color: $track-active-color
+			$width: $pattern-track-active-corner-border-size,
+			$height: $pattern-track-active-corner-border-size,
+			$thickness: $pattern-track-active-corner-border-thickness,
+			$offset: $pattern-track-active-corner-border-offset,
+			$color: $pattern-track-active-color
 		);
 	}
 }
