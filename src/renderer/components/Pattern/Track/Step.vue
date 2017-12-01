@@ -5,12 +5,15 @@
 </template>
 
 <script>
-import '@/renderer/style/track.scss'
 import {isNil} from 'ramda'
 
 const NoteNames = [
 	'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B',
 ]
+
+function xor(a, b) {
+	return (a || b) && !(a && b)
+}
 
 export default {
 	components: {
@@ -23,9 +26,8 @@ export default {
 		step: {
 			type: Object,
 			required: true,
-			validator(step) {
-				return (isNil(step.midi) && isNil(step.velocity))
-					|| (!isNil(step.midi) && !isNil(step.velocity))
+			validator({midi, velocity}) {
+				return !xor(isNil(midi), isNil(velocity))
 			},
 		},
 	},

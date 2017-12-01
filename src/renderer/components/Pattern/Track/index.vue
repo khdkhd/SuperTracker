@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import '@/renderer/style/track.scss'
 import Step from './Step'
 
 export default {

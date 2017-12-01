@@ -1,16 +1,14 @@
 <template>
-	<div class="track-wrapper" >
-		<st-track v-for="(track,index) in tracks"
-			:key="index"
-			:class="{active: track.isActive}"
-			:name="track.name"
-			:steps="track.steps">
-		</st-track>
-	</div>
+	<st-track
+		:class="{active: track.isActive}"
+		:name="track.name"
+		:steps="track.steps">
+	</st-track>
 </template>
 
 <script>
-import Track from '@/renderer/components/Track'
+import '@/renderer/style/pattern.scss'
+import Track from '@/renderer/components/Pattern/Track'
 import { times } from 'ramda'
 import random from 'lodash.random'
 
@@ -26,36 +24,22 @@ function generateSteps(count) {
 }
 
 export default {
-	props: {
-		length: {
-			type: Number,
-			default: 24,
-		},
-		trackCount: {
-			type: Number,
-			default: 8,
-		},
-	},
 	data() {
 		return {
-			tracks: times(index => ({
-				name: `Track ${index.toFixed(0).padStart(2, '0')}`,
-				steps: generateSteps(this.length),
-				isActive: index === 0,
-			}), this.trackCount),
+			track: {
+				name: 'Foobar',
+				steps: generateSteps(24),
+				isActive: true,
+			},
 		}
 	},
 	components: {
 		'st-track': Track,
 	},
-	methods: {
-	},
 	mounted() {
 		setInterval(() => {
-			for (const track of this.tracks) {
-				const steps = track.steps
-				steps.push(steps.shift())
-			}
+			const steps = this.track.steps
+			steps.push(steps.shift())
 		}, 100)
 	},
 }
