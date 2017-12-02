@@ -3,7 +3,7 @@
 	<st-transport></st-transport>
 	<div style="text-align: center">
 		<!-- <st-visualisation></st-visualisation> -->
-		<st-pattern :length="length" :tracks="tracks"></st-pattern>
+		<st-pattern :length="Pattern.trackLength" :tracks="Pattern.tracks"></st-pattern>
 	</div>
 </div>
 </template>
@@ -13,28 +13,16 @@ import Pattern from '@/renderer/components/Pattern'
 import Transport from '@/renderer/components/Transport'
 import Visualisation from '@/renderer/components/Visualisation'
 
-import {times} from 'ramda'
-
-const length = 64
-const trackCount = 8
+import {mapState} from 'vuex'
 
 export default {
 	name: 'main',
-	data() {
-		return {
-			length,
-			tracks: times(index => ({
-				name: `Track ${index.toFixed(0).padStart(2, '0')}`,
-				steps: times(index => ({isActive: false}), length),
-				isActive: index === 0,
-			}), trackCount),
-		}
-	},
 	components: {
 		'st-pattern': Pattern,
 		'st-transport': Transport,
 		'st-visualisation': Visualisation,
 	},
+	computed: mapState(['Pattern']),
 	methods: {
 	},
 }
