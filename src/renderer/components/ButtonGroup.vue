@@ -13,8 +13,6 @@
 <script>
 import '@/renderer/style/button-group.scss'
 export default {
-	components: {
-	},
 	props: ['buttons'],
 	methods: {
 		onButtonClicked(ev) {
