@@ -3,7 +3,7 @@
 	<st-transport></st-transport>
 	<div style="text-align: center">
 		<!-- <st-visualisation></st-visualisation> -->
-		<st-pattern :length="Pattern.trackLength" :tracks="Pattern.tracks"></st-pattern>
+		<st-pattern :pattern="pattern"></st-pattern>
 	</div>
 </div>
 </template>
@@ -22,7 +22,7 @@ export default {
 		'st-transport': Transport,
 		'st-visualisation': Visualisation,
 	},
-	computed: mapState(['Pattern']),
+	computed: mapState(['pattern']),
 	methods: {
 	},
 }
