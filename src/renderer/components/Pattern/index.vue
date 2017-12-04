@@ -1,9 +1,10 @@
 <template>
 	<div class="pattern" >
-		<beat-indexes :indexes="indexes"/>
-		<st-track v-for="(track, index) in tracks"
+		<st-beat-indexes :trackLength="pattern.trackLength"/>
+		<st-track v-for="(track, index) in pattern.tracks"
 			:key="index"
-			:class="{active: track.isActive}"
+			:index="index"
+			:isActive="isActiveTrack(index)"
 			:name="track.name"
 			:steps="track.steps">
 		</st-track>
@@ -12,26 +13,20 @@
 
 <script>
 import '@/renderer/style/pattern.scss'
+
 import BeatIndexes from './BeatIndexes'
 import Track from './Track'
-
-import {identity, times} from 'ramda'
 
 export default {
 	components: {
 		'st-track': Track,
-		'beat-indexes': BeatIndexes,
+		'st-beat-indexes': BeatIndexes,
 	},
 	methods: {
-	},
-	props: ['tracks', 'length'],
-	computed: {
-		indexes() {
-			return times(identity, this.length)
+		isActiveTrack(trackIndex) {
+			return this.pattern.activeTrackIndex === trackIndex
 		},
 	},
+	props: ['pattern'],
 }
 </script>
-
-<style lang="scss">
-</style>

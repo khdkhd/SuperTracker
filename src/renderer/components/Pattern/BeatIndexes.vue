@@ -6,8 +6,14 @@
 </template>
 
 <script>
+import {identity, times} from 'ramda'
 export default {
-	props: ['indexes'],
+	computed: {
+		indexes() {
+			return times(identity, this.trackLength)
+		},
+	},
+	props: ['trackLength'],
 	filters: {
 		format(index) {
 			return index.toFixed(0).padStart(2, '0')
