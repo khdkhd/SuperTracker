@@ -26,7 +26,6 @@ const defaultPrecision = 2
 const defaultStep = 1
 
 export default {
-	name: 'spin-box',
 	components: {
 	},
 	props: {
