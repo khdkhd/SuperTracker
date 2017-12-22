@@ -47,38 +47,39 @@
 }
 
 @mixin button(
+	$active-color: $control-active-fg-color,
+	$active-background-color: $control-active-bg-color,
+	$background-color: $control-bg-color,
+	$color: $control-fg-color,
+	$hover-background-color: $control-hover-bg-color,
+	$border-color: $control-border-color,
+	$border-radius: $control-border-radius,
+	$border-thickness: $control-border-thickness,
 	$display: inline-block,
-	$background-color: $button-bg-color,
-	$border-color: $button-border-color,
-	$border-radius: $button-border-radius,
-	$border-thickness: $button-border-thickness,
-	$font-size: $button-font-size,
-	$height: $line-height,
-	$padding: $button-padding,
-	$margin: 0
+	$font-size: $control-font-size,
+	$height: $control-height,
+	$padding: $control-padding,
+	$show-border: $control-show-border
 ) {
 	background-color: $background-color;
-	border: {
-		color: $border-color;
-		style: solid;
-		width: $border-thickness;
-	}
+	border: if($show-border, $border-thickness solid $border-color, none);
 	border-radius: $border-radius;
 	box-sizing: border-box;
-	color: inherit;
+	color: $color;
 	display: $display;
 	height: $height;
-	font-family: FontAwesome;
+	font-family: 'FontAwesome';
 	font-size: $font-size;
-	margin: $margin;
-	padding: 0 $padding;
+	margin: 0;
 	outline: none;
-	text-align: center;
-	transition: all $transition-duration;
+	padding: 0 $padding;
 	vertical-align: middle;
+	&:active {
+		background-color: $active-background-color;
+		color: $active-color;
+	}
 	&:hover {
-		background-color: $button-hover-bg-color;
-		color: $blue;
+		background-color: $hover-background-color;
 	}
 	&::after {
 		content: '\f128';
@@ -86,48 +87,119 @@
 }
 
 @mixin button-group(
+	$active-color: $control-active-fg-color,
+	$active-background-color: $control-active-bg-color,
+	$background-color: $control-bg-color,
+	$color: $control-fg-color,
+	$hover-background-color: $control-hover-bg-color,
+	$border-color: $control-border-color,
+	$border-radius: $control-border-radius,
+	$border-thickness: $control-border-thickness,
 	$display: inline-block,
-	$border-radius: $button-border-radius,
-	$font-size: $button-font-size,
-	$height: $line-height,
-	$border-thickness: $button-border-thickness,
-	$margin: 0,
-	$padding: $button-padding,
-	$labels: ()
+	$font-size: $control-font-size,
+	$height: $control-height,
+	$padding: $control-padding,
+	$show-border: $control-show-border
 ) {
+	border: if($show-border, $border-thickness solid $border-color, none);
+	border-radius: $border-radius;
+	box-sizing: border-box;
 	display: $display;
-	list-style-type: none;
-	line-height: $height;
-	margin: $margin;
+	height: $height;
+	overflow: hidden;
 	padding: 0;
-	& > li {
-		display: inline-block;
-		line-height: $height;
-		margin: 0 0;
-		button {
+	margin: 0;
+	vertical-align: middle;
+	button {
+		@include button(
+			$border-radius: 0,
+			$height: 100%,
+			$font-size: $font-size,
+			$show-border: false
+		);
+		border-right: if($show-border, $border-thickness solid $border-color, none);
+		vertical-align: top;
+		&:last-child {
+			border-right: none;
+		}
+	}
+}
+
+@mixin spin-box(
+	$arrow-button-active-color: $control-active-fg-color,
+	$arrow-button-active-background-color: $control-bg-color,
+	$arrow-button-border-color: $control-border-color,
+	$arrow-button-hover-bg-color: $control-hover-bg-color,
+	$arrow-button-font-size: $spinbox-arrow-font-size,
+	$arrow-button-width: $spinbox-arrow-width,
+	$background-color: $control-bg-color,
+	$color: $control-fg-color,
+	$hover-background-color: $control-hover-bg-color,
+	$border-color: $control-border-color,
+	$border-radius: $control-border-radius,
+	$border-thickness: $control-border-thickness,
+	$display: inline-block,
+	$font-size: $control-font-size,
+	$font-family: $app-font-family,
+	$height: $control-height,
+	$padding: $spinbox-padding,
+	$show-border: $control-show-border
+) {
+	background-color: $background-color;
+	border: if($show-border, $border-thickness solid $border-color, none);
+	border-radius: $border-radius;
+	box-sizing: border-box;
+	display: $display;
+	overflow: hidden;
+	position: relative;
+	height: $height;
+	vertical-align: middle;
+	input[type=number] {
+		background-color: transparent;
+		border: none;
+		box-sizing: border-box;
+		color: $color;
+		display: block;
+		font-family: $font-family;
+		font-size: $font-size;
+		height: 100%;
+		margin: 0 ($arrow-button-width + $padding) 0 $padding;
+		outline: none;
+		padding: 0;
+		text-align: right;
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+		}
+		&::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+		}
+	}
+	.spin-box-arrow-button-wrapper {
+		border-left: if($show-border, $border-thickness solid $border-color, none);
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: $arrow-button-width;
+		& > button {
 			@include button(
-				$display: inline-block,
+				$active-color: $arrow-button-active-color,
 				$border-radius: 0,
-				$border-thickness: $border-thickness,
-				$font-size: $font-size,
-				$height: $height,
-				$padding: $padding
+				$color: $color,
+				$display: block,
+				$height: 50%,
+				$show-border: false
 			);
-			border-left-width: 0;
-			@each $id, $label in $labels {
-				&##{$id}::after {
-					content: '#{$label}'
-				}
+			font-size: $arrow-button-font-size;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			&[data-action="up"]::after {
+				content: '\f0d8';
 			}
-		}
-		&:first-child button {
-			border-left-width: $border-thickness;
-			border-bottom-left-radius: $border-radius;
-			border-top-left-radius: $border-radius;
-		}
-		&:last-child button {
-			border-bottom-right-radius: $border-radius;
-			border-top-right-radius: $border-radius;
+			&[data-action="down"]::after {
+				content: '\f0d7';
+			}
 		}
 	}
 }

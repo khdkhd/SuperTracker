@@ -8,9 +8,9 @@
 			:max="max"
 			:step="step"
 			v-model.number="value">
-		<div class="spinbox-arrow-wrapper">
-			<button ref="up" class="spinbox-arrow" data-action="up" @click="onArrowClicked"/>
-			<button ref="down" class="spinbox-arrow" data-action="down" @click="onArrowClicked"/>
+		<div class="spin-box-arrow-button-wrapper">
+			<button ref="up" class="spinbox-arrow-button" data-action="up" @click="onArrowClicked"/>
+			<button ref="down" class="spinbox-arrow-button" data-action="down" @click="onArrowClicked"/>
 		</div>
 	</div>
 </template>

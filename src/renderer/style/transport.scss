@@ -4,6 +4,7 @@
 	@include shadow(2);
 	background-color: $transport-bg-color;
 	height: $transport-bar-height;
+	line-height: $transport-bar-height;
 	list-style-type: none;
 	font-size: $transport-font-size;
 	margin: 0;

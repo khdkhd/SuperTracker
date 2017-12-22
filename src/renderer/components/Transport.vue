@@ -10,7 +10,7 @@
 	</li>
 	<li class="separator"></li>
 	<li>
-		<span>BPM</span>
+		<!-- <span>BPM</span> -->
 		<spin-box
 			id="tempo"
 			ref="tempo"

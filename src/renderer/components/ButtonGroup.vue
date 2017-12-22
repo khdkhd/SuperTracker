@@ -1,13 +1,11 @@
 <template>
-	<ul class="button-group">
-		<li v-for="button in buttons">
-			<button
-				:id="button.id"
-				@click="onButtonClicked"
-				type="button">
-			</button>
-		</li>
-	</ul>
+	<div class="button-group">
+		<button v-for="button in buttons"
+			:id="button.id"
+			@click="onButtonClicked"
+			type="button">
+		</button>
+	</div>
 </template>
 
 <script>

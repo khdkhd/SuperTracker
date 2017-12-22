@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<button></button>
 		<span>foo</span>
 		<button-group id="action" :buttons="buttons" @clicked="onClick"></button-group>
 		<span>foo</span>

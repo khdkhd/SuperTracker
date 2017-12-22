@@ -30,14 +30,12 @@
 		overflow: auto;
 		& > li {
 			color: $light-gray;
-			clear: both;
-			float: left;
 			&.active {
 				background-color: $pattern-track-step-active-bg-color;
 			}
 			&:nth-child(4n + 1) {
-				color: $white;
 				background-color: $gray;
+				color: $white;
 			}
 		}
 	}
@@ -49,6 +47,16 @@
 }
 .beat-indexes {
 	background-color: $pattern-track-border-color;
+	.button-group {
+		@include button-group(
+			$border-thickness: 1px,
+			$display: block,
+			$font-size: .5rem,
+			$height: .725rem,
+			$padding: .25rem,
+			$labels: (down: '\f104', up: '\f105')
+		);
+	}
 }
 .track {
 	.pitch {

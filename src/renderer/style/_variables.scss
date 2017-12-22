@@ -8,55 +8,43 @@ $yellow: #e8e073;
 $black: darken($gray, 5);
 $white: #e3dcf3;
 
-$font-size: 16pt;
+$font-size: 24px;
 $font-path: '/static/fonts';
-$line-height: 1.25rem;
 $transition-duration: .25s;
 
 $app-bg-color: $gray;
 $app-fg-color: $white;
 $app-font-family: sans-serif;
+$app-font-size: 1rem;
+$app-line-height: 1.25*$app-font-size;
 
 $control-bg-color: lighten($app-bg-color, 10);
+$control-fg-color: $app-fg-color;
+$control-active-bg-color: $control-bg-color;
+$control-active-fg-color: $blue;
 $control-hover-bg-color: darken($control-bg-color, 5);
+$control-border-color: #202029;;
+$control-border-radius: 6px;
+$control-border-thickness: 2px;
+$control-font-size: .75*$app-font-size;
+$control-height: $app-line-height;
+$control-padding: .6rem;
+$control-show-border: true;
 
-$border-radius: 6px;
-$border-thickness: 2px;
-$border-color: #202029;
-
-$button-bg-color: $control-bg-color;
-$button-hover-bg-color: $control-hover-bg-color;
-$button-border-color: $border-color;
-$button-border-radius: $border-radius;
-$button-border-thickness: $border-thickness;
-$button-font-size: .5rem;
-$button-min-width: $line-height;
-$button-padding: .6rem;
-
-$spinbox-bg-color: $control-bg-color;
-$spinbox-hover-bg-color: $control-hover-bg-color;
-$spinbox-border-color: $border-color;
-$spinbox-border-radius: $border-radius;
-$spinbox-border-thickness: $border-thickness;
-$spinbox-font-size: .75rem;
-$spinbox-padding-left: .5rem;
-$spinbox-padding-right: 1rem;
-$spinbox-arrow-border-color: darken($spinbox-bg-color, 5);
-$spinbox-arrow-hover-bg-color: $control-hover-bg-color;
-$spinbox-arrow-font-size: .6rem;
+$spinbox-arrow-font-size: .5rem;
 $spinbox-arrow-width: 1rem;
+$spinbox-padding: $control-padding/2;
 
-$transport-bar-height: $line-height;
+$transport-bar-height: $app-line-height;
 $transport-bg-color: $black;
 $transport-font-size: .75rem;
 $transport-shadow-level: 2;
-$transport-item-separator-color: $border-color;
+$transport-item-separator-color: $control-border-color;
 $transport-item-spacing: 0rem;
 $transport-item-margin: .25rem;
 
 $pattern-bg-color: $black;
 $pattern-shadow-level: 2;
-
 $pattern-track-border-color: $gray;
 $pattern-track-border-thickness: 1px;
 $pattern-track-active-color: $yellow;
