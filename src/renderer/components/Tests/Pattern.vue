@@ -1,37 +1,15 @@
 <template>
-	<st-pattern :length="length" :tracks="tracks"></st-pattern>
+	<div class="pattern-wrapper">
+		<st-pattern :pattern="pattern"></st-pattern>
+	</div>
 </template>
 
 <script>
 import Pattern from '@/renderer/components/Pattern'
-import { times } from 'ramda'
-import random from 'lodash.random'
-
-const length = 24
-const trackCount = 8
-
-function generateSteps(count) {
-	return times(index => {
-		const step = random(0, 1) === 0
-			? { midi: random(-1, 127), velocity: random(0, 1, true) }
-			: { }
-		return Object.assign(step, {
-			isActive: index === 0,
-		})
-	}, count)
-}
+import {mapState} from 'vuex'
 
 export default {
-	data() {
-		return {
-			length,
-			tracks: times(index => ({
-				name: `Track ${index.toFixed(0).padStart(2, '0')}`,
-				steps: generateSteps(length),
-				isActive: index === 0,
-			}), trackCount),
-		}
-	},
+	computed: mapState(['pattern']),
 	components: {
 		'st-pattern': Pattern,
 	},
@@ -46,9 +24,8 @@ export default {
 }
 </script>
 
-
 <style lang="scss">
-	.track-wrapper {
+	.pattern-wrapper {
 		margin: 1rem auto;
 		text-align: center;
 	}

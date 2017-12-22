@@ -99,7 +99,8 @@
 	$font-size: $control-font-size,
 	$height: $control-height,
 	$padding: $control-padding,
-	$show-border: $control-show-border
+	$show-border: $control-show-border,
+	$labels: ()
 ) {
 	border: if($show-border, $border-thickness solid $border-color, none);
 	border-radius: $border-radius;
@@ -114,6 +115,7 @@
 		@include button(
 			$border-radius: 0,
 			$height: 100%,
+			$padding: $padding,
 			$font-size: $font-size,
 			$show-border: false
 		);
@@ -121,6 +123,11 @@
 		vertical-align: top;
 		&:last-child {
 			border-right: none;
+		}
+		@each $id, $label in $labels {
+			&##{$id}::after {
+				content: $label
+			}
 		}
 	}
 }
