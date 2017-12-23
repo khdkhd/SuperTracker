@@ -1,5 +1,5 @@
 <template>
-<li :class="{active: step.isActive}">
+<li :class="{active: isActive}" @click="onClicked">
 	<span class="pitch">{{pitch}}</span>&nbsp;&nbsp;<span class="velocity">{{velocity}}</span>
 </li>
 </template>
@@ -32,6 +32,9 @@ export default {
 		},
 	},
 	computed: {
+		isActive() {
+			return this.$store.state.cursor.currentBeatIndex === this.index
+		},
 		pitch() {
 			const {midi} = this.step
 			if (!isNil(midi)) {
@@ -52,6 +55,11 @@ export default {
 					: '  '
 			}
 			return '..'
+		},
+	},
+	methods: {
+		onClicked() {
+			this.$store.commit('setCurrentBeatIndex', this.index)
 		},
 	},
 }

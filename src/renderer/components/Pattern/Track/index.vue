@@ -20,7 +20,12 @@ export default {
 	},
 	methods: {
 		onClicked() {
-			this.$store.commit('setActiveTrackIndex', this.index)
+			this.$store.commit('setCurrentTrackIndex', this.index)
+		},
+	},
+	computed: {
+		isActive() {
+			return this.$store.state.cursor.currentTrackIndex === this.index
 		},
 	},
 	props: {
@@ -28,10 +33,6 @@ export default {
 		index: {
 			type: Number,
 			required: true,
-		},
-		isActive: {
-			type: Boolean,
-			default: false,
 		},
 		steps: {
 			type: Array,

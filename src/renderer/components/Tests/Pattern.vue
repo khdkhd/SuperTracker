@@ -15,7 +15,7 @@ export default {
 	},
 	// mounted() {
 	// 	setInterval(() => {
-	// 		for (const track of this.tracks) {
+	// 		for (const track of this.pattern.tracks) {
 	// 			const steps = track.steps
 	// 			steps.push(steps.shift())
 	// 		}

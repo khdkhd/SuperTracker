@@ -31,7 +31,7 @@
 		& > li {
 			color: $light-gray;
 			&.active {
-				background-color: $pattern-track-step-active-bg-color;
+				background-color: $pattern-track-step-active-bg-color !important;
 			}
 			&:nth-child(4n + 1) {
 				background-color: $gray;
@@ -76,5 +76,11 @@
 			$offset: $pattern-track-active-corner-border-offset,
 			$color: $pattern-track-active-color
 		);
+		li.active {
+			background-color: $pattern-track-current-step-bg-color !important;
+			> .pitch, .velocity {
+				color: $pattern-track-current-step-fg-color !important;
+			}
+		}
 	}
 }

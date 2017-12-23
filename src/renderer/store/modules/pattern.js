@@ -1,4 +1,4 @@
-import {clamp, isNil, times} from 'ramda'
+import {clamp, times} from 'ramda'
 
 const defaultTrackCount = 8
 const defaultTrackLength = 64
@@ -6,12 +6,11 @@ const defaultTrackLength = 64
 function generateTrack(index, length) {
 	return {
 		name: `Track ${index.toFixed(0).padStart(2, '0')}`,
-		steps: times(index => ({isActive: false}), length),
+		steps: times(index => ({}), length),
 	}
 }
 
 const state = {
-	activeTrackIndex: 0,
 	trackLength: defaultTrackLength,
 	tracks: times(trackIndex => {
 		return generateTrack(trackIndex, defaultTrackLength)
@@ -33,14 +32,9 @@ const mutations = {
 		if (state.trackLength !== length) {
 			state.trackLength = length
 			for (const track of state.tracks) {
-				track.steps.push({isActive: false})
+				track.steps.push({})
 			}
 		}
-	},
-	setActiveTrackIndex(state, index) {
-		state.activeTrackIndex = isNil(index)
-			? 0
-			: clamp(0, state.tracks.length - 1, index)
 	},
 }
 
