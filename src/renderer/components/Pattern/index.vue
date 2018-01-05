@@ -1,5 +1,5 @@
 <template>
-	<div class="pattern" >
+	<div class="pattern" :class="{playing: transport.playing}">
 		<st-beat-indexes :trackLength="pattern.trackLength"/>
 		<st-track v-for="(track, index) in pattern.tracks"
 			:key="index"
@@ -21,6 +21,6 @@ export default {
 		'st-track': Track,
 		'st-beat-indexes': BeatIndexes,
 	},
-	props: ['pattern'],
+	props: ['pattern', 'transport'],
 }
 </script>

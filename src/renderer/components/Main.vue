@@ -3,7 +3,7 @@
 	<st-transport></st-transport>
 	<div style="text-align: center">
 		<!-- <st-visualisation></st-visualisation> -->
-		<st-pattern :pattern="pattern"></st-pattern>
+		<st-pattern :pattern="pattern" :transport="transport"></st-pattern>
 	</div>
 </div>
 </template>
@@ -22,7 +22,7 @@ export default {
 		'st-transport': Transport,
 		'st-visualisation': Visualisation,
 	},
-	computed: mapState(['pattern']),
+	computed: mapState(['pattern', 'transport']),
 	methods: {
 	},
 }

@@ -58,7 +58,7 @@ export default {
 	},
 	methods: {
 		onActionButtonClicked(actionId) {
-			// console.log(actionId)
+			this.$store.commit(actionId)
 		},
 		onTempoValueChanged(tempoValue) {
 			// console.log(tempoValue)
