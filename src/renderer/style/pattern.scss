@@ -59,6 +59,9 @@
 	}
 }
 .track {
+	li {
+		cursor: default;
+	}
 	.pitch {
 		color: $pattern-track-step-pitch-color;
 	}
